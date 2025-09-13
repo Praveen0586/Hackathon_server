@@ -21,7 +21,7 @@ const url = isLive ? "https://hackathon-server-18ab.onrender.com/" : "http://loc
 
 setInterval(async () => {
     try {
-        const res = await axios.get(isLive);
+        const res = await axios.get(url);
         console.log("✅ Ping Success:", res.data);
     } catch (err) {
         console.error("❌ Ping Failed:", err.message);
