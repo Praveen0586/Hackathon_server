@@ -6,7 +6,10 @@ const pdfParse = require("pdf-parse");   // <-- this line is missing in your cod
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 
-const genAI = new GoogleGenerativeAI("AIzaSyC_BqCt7wP4s9Z6Melk_C9unFm0jqjrlcU");
+// const genAI = new GoogleGenerativeAI("AIzaSyC_BqCt7wP4s9Z6Melk_C9unFm0jqjrlcU");
+
+//paid api
+const genAI = new GoogleGenerativeAI("AIzaSyBiKKS9MYGdYdNEqvUt04asxfdTaC8Mb-M");
 
 app.get("/", (req, res) => { res.send("Running ....") })
     ; app.post("/api/studyplan", async (req, res) => {
