@@ -7,5 +7,20 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "axios": "^1.12.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.18.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Praveen0586/Hackathon_server.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Praveen0586/Hackathon_server/issues"
+  },
+  "homepage": "https://github.com/Praveen0586/Hackathon_server#readme",
   "description": ""
 }
