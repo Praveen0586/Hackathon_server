@@ -16,7 +16,11 @@ const userSchema = new mongoose.Schema({
         enum: ["Male", "Female", "Other"], // optional validation
         required: true
     },
-    depYear: {
+    dep: {
+        type: String,
+        required: true
+    },
+     Year: {
         type: Number,
         required: true
     },
