@@ -1,12 +1,19 @@
 const express = require("express");
 const cors = require("cors");
 const axios = require("axios");
+const mongoose = require("./database"); // import the database connection
+
+const userRoutes = require("./users"); // Import router
+
+
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
+
+app.use("/users", userRoutes);
 
 // base route
 app.get("/", (req, res) => {
