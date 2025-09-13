@@ -4,6 +4,7 @@ const axios = require("axios");
 const mongoose = require("./database"); // import the database connection
 
 const userRoutes = require("./users"); // Import router
+const geminjapi = require("./chatbot");
 
 
 
@@ -14,7 +15,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/users", userRoutes);
-
+app.use("/chatbot", geminjapi)
 // base route
 app.get("/", (req, res) => {
     res.send("Server is running 🚀");
