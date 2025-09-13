@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Year: {
+    year: {
         type: Number,
         required: true
     },
