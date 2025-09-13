@@ -42,7 +42,7 @@ app.get("/", (req, res) => { res.send("Running ....") })
 
 
 app.post("/ask", upload.fields([
-    { name: "syllabus", maxCount: 1 },
+
     { name: "textbook", maxCount: 1 }
 ]), async (req, res) => {
     try {
@@ -51,20 +51,17 @@ app.post("/ask", upload.fields([
             return res.status(400).json({ error: "Question is required" });
         }
 
-        const syllabusFile = req.files["syllabus"]?.[0];
         const textbookFile = req.files["textbook"]?.[0];
 
         if (!syllabusFile || !textbookFile) {
             return res.status(400).json({ error: "Both syllabus and textbook PDFs are required" });
         }
 
-        const syllabusData = await pdfParse(syllabusFile.buffer);
         const textbookData = await pdfParse(textbookFile.buffer);
 
         const prompt = `
         Answer this question based on the syllabus and textbook:
         Question: ${question}
-        Syllabus: ${syllabusData.text}
         Textbook: ${textbookData.text}
         `;
 
