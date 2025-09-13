@@ -5,6 +5,9 @@ const userSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
+    }, img: {
+        type: String,
+        required: true
     },
     studentId: {  // renamed 'id' to 'studentId' to avoid conflicts
         type: String,
@@ -20,7 +23,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-     Year: {
+    Year: {
         type: Number,
         required: true
     },
