@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 
 
 const isLive = true;
-const url = isLive ? "https://hackathon-server-18ab.onrender.com/" : "http://localhost:5000/";
+const url = isLive ? "https://hackathon-server-1.onrender.com/" : "http://localhost:5000/";
 
 setInterval(async () => {
     try {
