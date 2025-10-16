@@ -9,14 +9,22 @@ const { GoogleGenerativeAI } = require("@google/generative-ai");
 // const genAI = new GoogleGenerativeAI("AIzaSyC_BqCt7wP4s9Z6Melk_C9unFm0jqjrlcU");
 
 //paid api
-const genAI = new GoogleGenerativeAI("AIzaSyBiKKS9MYGdYdNEqvUt04asxfdTaC8Mb-M");
+const genAI1 = new GoogleGenerativeAI("AIzaSyBiKKS9MYGdYdNEqvUt04asxfdTaC8Mb-M");
+
+//free tier
+const genAI = new GoogleGenerativeAI("AIzaSyCn3SuKTl3Ca6pNj1ax2npg6Q13x2CfUtk");
+
 
 app.get("/", (req, res) => { res.send("Running ....") })
+
+
+
     ; app.post("/api/studyplan", async (req, res) => {
+        console.log("Started Study Planner");
         try {
             const { subjects, exams, hours } = req.body;
 
-            const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+            const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
             const prompt = `
     You are an AI study planner.
@@ -45,6 +53,8 @@ app.post("/ask", upload.fields([
     { name: "syllabus", maxCount: 1 },
     { name: "textbook", maxCount: 1 }
 ]), async (req, res) => {
+
+    console.log("Started AI -ASK");
     try {
         const question = req.body.question;
         if (!question) {
@@ -68,7 +78,7 @@ app.post("/ask", upload.fields([
         Textbook: ${textbookData.text}
         `;
 
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
         const result = await model.generateContent(prompt);
 
         res.json({ answer: result.response.text() });
@@ -119,7 +129,7 @@ app.post("/flashcards", upload.fields([
 
 
         // Call Gemini API
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+        const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
         const result = await model.generateContent(prompt);
 
         // The AI may return JSON as string, so parse it
